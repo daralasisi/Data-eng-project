@@ -23,3 +23,17 @@ This project creates a financial data dashboard that integrates different financ
 # Financial API
 For this project, I've chosen to use the [Alpha Vantage]('https://www.alphavantage.co/) API to extract financial data. Alpha Vantage provides realtime and historical financial market data through a set of powerful and developer-friendly data APIs and spreadsheets.
 
+<br> 
+<br> 
+
+# Test Folder
+The [test](/test/) folder contains the tests for each function in this project. To run a test, type either of the following into the terminal:
+
+- ``` python 3 -m pytest -v -s ```
+- ``` pytest (filename.py) (make sure to put on the right file path if not in the test folder)```
+
+<br>
+<br>
+
+
+
