@@ -4,7 +4,6 @@ import sys
 sys.path.insert(0, '../src')
 from unittest.mock import Mock, patch
 import pandas as pd
-import csv
 from pipeline import get_data_from_api
 
 

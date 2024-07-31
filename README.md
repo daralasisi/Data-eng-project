@@ -35,5 +35,13 @@ The [test](/test/) folder contains the tests for each function in this project. 
 <br>
 <br>
 
+# Database Schema 
+
+The database schema can be found by following this [link]('https://drive.google.com/file/d/1me_G8aTfo1tUZuwPfMaHOpmg3TxUsmQJ/view?usp=sharing')
+
+- ![Database Schema](./images/database_schema.png)
+
+<br>
+<br>
 
 
