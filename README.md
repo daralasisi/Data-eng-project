@@ -15,7 +15,7 @@ This project creates a financial data dashboard that integrates different financ
 <br> 
 
 # Install libraries from the requirements file 
-- In a terminal, run pip install requirements.txt to install all the necessary libraries in the [requirements]('src/requiremts.txt') file 
+- In a terminal, run pip install requirements.txt to install all the necessary libraries in the [requirements]('src/requirements.txt') file 
 
 <br> 
 <br> 
@@ -44,4 +44,10 @@ The database schema can be found by following this [link]('https://drive.google.
 <br>
 <br>
 
+# Docker Container and MYSQL Database Setup
+A docker container has been set up for the MySQL database. All the commands to setup the docker container and the database are in the [docker.sh]('database/docker.sh') file. Once the database is created, run the below command to run MySQL commands inside the container.
 
+
+- ``` docker exec -it containername mysql -uroot -ptherootpassword databasename ```
+
+Once run, you can run normal MySQL queries to access data within the database.
