@@ -162,6 +162,7 @@ cython_debug/
 #.idea/
 
 src/api-key.scrapy
+src/todo.scrapy
 listing_status.csv
 
 **/.DS_Store
