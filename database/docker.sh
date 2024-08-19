@@ -79,10 +79,6 @@ done
 
 echo "Connected to MySQL successfully"
 
-done
-
-echo "Connected to MySQL successfully"
-
 #check if setup.sql exists
 if [ ! -f "$SETUP_SQL"]; then 
      echo "Error: $SETUP_SQL file not found!"
@@ -99,5 +95,5 @@ docker cp $SETUP_SQL $CONTAINER_NAME:/app/$SETUP_SQL
 
 # Execute the setup.sql script inside the container
 echo "Executing $SETUP_SQL inside the MySQL container"
-docker exec -i $CONTAINER_NAME mysql -uroot -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE < /app/setup.sql
+docker exec -i $CONTAINER_NAME bash -c "mysql -uroot -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE < /app/setup.sql"
 echo "MySQL setup complete!"
