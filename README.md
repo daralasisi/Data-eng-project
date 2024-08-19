@@ -50,4 +50,15 @@ A docker container has been set up for the MySQL database. All the commands to s
 
 - ``` docker exec -it containername mysql -uroot -ptherootpassword databasename ```
 
-Once run, you can run normal MySQL queries to access data within the database.
+Once run, you can run normal MySQL queries to access data within the database. Some queries below:
+- ``` SHOW TABLES; ```
+- ``` SELECT * FROM Tablename ```
+- ``` EXIT ``` to exit the sql client
+
+I've adjusted line 98 in the [docker.sh]('database/docker.sh') file because when run normally like this:
+
+- ``` docker exec -i $CONTAINER_NAME mysql -uroot -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE < /app/setup.sql ```
+
+it says **'line 98: /app/setup.sql: No such file or directory'**. I've ruled it down to how my system interpretes the command and have changed the code to:
+
+``` docker exec -i $CONTAINER_NAME bash -c "mysql -uroot -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE < /app/setup.sql" ```
