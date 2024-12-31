@@ -4,11 +4,13 @@
         "sectors": "Technology",
         "industry": "Consumer Electronics"
     },
+
     "MSFT": {
         "company_name": "Microsoft Corp.",
         "sectors": "Technology",
         "industry": "Software"
     },
+    
     "GOOGL": {
         "company_name": "Alphabet Inc.",
         "sector": "Technology",
