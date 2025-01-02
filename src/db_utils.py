@@ -8,10 +8,9 @@ import datetime
 db_config = {
     'user': 'root',
     'password': 'rootpassword',
-    'host': 'localhost',  # Can also use Docker container's IP
+    'host': 'localhost',  
     'database': 'FinancialDashboard'
 }
-
 
 def setup_db_connection():
     print(f'setup_db_connection: Opening Connection to {db_config["database"]} with user {db_config["user"]}')
@@ -147,29 +146,4 @@ def insert_stock_prices (connection, data):
     except Exception as e:
         print(f"Unexpected error: {e}")
         connection.rollback()
-   
-def main():
-    # Connect to the database
-    conn = mysql.connector.connect(**db_config)
-    cursor = conn.cursor()
 
-    try:
-        # Create database and tables
-        create_database_and_tables(cursor)
-
-        # Fetch data from API
-        data = fetch_data_from_api()
-
-        # Insert data into the database
-        insert_data_into_db(cursor, data)
-
-        # Commit changes
-        conn.commit()
-
-    finally:
-        # Close connections
-        cursor.close()
-        conn.close()
-
-if __name__ == "__main__":
-    main()
