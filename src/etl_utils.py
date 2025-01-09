@@ -1,11 +1,12 @@
+import logging
+
 from typing import Dict, List
 import os
 import requests
 import json
 from datetime import datetime, date
 
-api_key = os.getenv('AV_API_KEY')
-symbol = 'GOOGL'
+logger = logging.getLogger(__name__)
 
 def get_data_from_api(api_key: str, symbol: str) -> Dict[str, Dict[str, str]]:
     """
@@ -33,12 +34,14 @@ def get_data_from_api(api_key: str, symbol: str) -> Dict[str, Dict[str, str]]:
     response.raise_for_status()  # Raises HTTPError if the response code is not 200-299
     
     data = response.json()
+    logger.info(f"Fetching data for symbol {symbol} from Alpha Vantage.")
 
     if 'Time Series (Daily)' in data:
+        logger.debug(f"Found {len(data['Time Series (Daily)'])} entries in 'Time Series (Daily)'.")
         return data['Time Series (Daily)']
     else:
-        print(f"Warning: 'Time Series (Daily)' not found in response for symbol '{symbol}'.")
-        return {}
+      logger.warning(f"No 'Time Series (Daily)' found for {symbol}")        
+      return {}
 
 def convert_dates_to_info(raw_data: Dict[str, Dict[str, str]]) -> List[Dict[str, int]]:
     """
@@ -51,6 +54,7 @@ def convert_dates_to_info(raw_data: Dict[str, Dict[str, str]]) -> List[Dict[str,
         ...
       ]
     """
+    logger.info("Converting raw data to date info.")
     dates_list: List[Dict[str, int]] = []
     
     for date_str in raw_data.keys():
@@ -67,7 +71,7 @@ def convert_dates_to_info(raw_data: Dict[str, Dict[str, str]]) -> List[Dict[str,
             'year': year,
             'quarter': quarter
         })
-
+    logger.info("Conversion completed!.")
     return dates_list
 
 
@@ -90,6 +94,7 @@ def extract_stock_prices(raw_data: Dict[str, Dict[str, str]], symbol: str) -> Li
         ...
       ]
     """
+    logger.info(f"Extracting stock price records for symbol {symbol}")
     processed_data: List[Dict[str, str]] = []
     
     for date_str, metrics in raw_data.items():
@@ -102,7 +107,8 @@ def extract_stock_prices(raw_data: Dict[str, Dict[str, str]], symbol: str) -> Li
             'close': metrics.get('4. close', ''),
             'volume': metrics.get('5. volume', '')
         })
-    
+
+    logger.info(f"Stock price extraction for records for symbol {symbol} completed!")
     return processed_data
 
 def main() -> None:
