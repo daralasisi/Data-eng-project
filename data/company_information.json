@@ -1,13 +1,13 @@
 {
     "AAPL": {
         "company_name": "Apple Inc.",
-        "sectors": "Technology",
+        "sector": "Technology",
         "industry": "Consumer Electronics"
     },
 
     "MSFT": {
         "company_name": "Microsoft Corp.",
-        "sectors": "Technology",
+        "sector": "Technology",
         "industry": "Software"
     },
     

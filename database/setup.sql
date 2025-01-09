@@ -29,21 +29,21 @@ CREATE TABLE IF NOT EXISTS stockPrices (
     FOREIGN KEY (symbol) REFERENCES Company (symbol)
 );
 
-INSERT INTO Company (symbol,
-company_name, sector, industry) VALUES
-('AAPL', 'Apple Inc.', 'Technology', 'Consumer Electronics'),
-('MSFT', 'Microsoft Corporation', 'Technology', 'Software');
+-- INSERT INTO Company (symbol,
+-- company_name, sector, industry) VALUES
+-- ('AAPL', 'Apple Inc.', 'Technology', 'Consumer Electronics'),
+-- ('MSFT', 'Microsoft Corporation', 'Technology', 'Software');
 
 
-INSERT INTO Dates (d_date, 
-d_day, d_month, d_quarter, d_year) VALUES
-('2023-07-17', 17, 7, 3, 2023),
-('2023-07-14', 14, 7, 3, 2023);
+-- INSERT INTO Dates (d_date, 
+-- d_day, d_month, d_quarter, d_year) VALUES
+-- ('2023-07-17', 17, 7, 3, 2023),
+-- ('2023-07-14', 14, 7, 3, 2023);
 
 
-INSERT INTO stockPrices (d_date, 
-symbol, open_value, high, low, close_value, volume) VALUES
-('2023-07-17', 'AAPL', 192.7798, 194.1100, 190.6800, 191.6800, 67220100),
-('2023-07-14', 'AAPL', 191.8300, 194.9700, 191.8000, 193.1600, 59052500),
-('2023-07-17', 'MSFT', 276.5000, 280.0000, 274.4500, 277.9400, 23350000),
-('2023-07-14', 'MSFT', 275.0000, 278.5500, 274.1200, 276.9800, 20021000);
+-- INSERT INTO stockPrices (d_date, 
+-- symbol, open_value, high, low, close_value, volume) VALUES
+-- ('2023-07-17', 'AAPL', 192.7798, 194.1100, 190.6800, 191.6800, 67220100),
+-- ('2023-07-14', 'AAPL', 191.8300, 194.9700, 191.8000, 193.1600, 59052500),
+-- ('2023-07-17', 'MSFT', 276.5000, 280.0000, 274.4500, 277.9400, 23350000), 
+-- ('2023-07-14', 'MSFT', 275.0000, 278.5500, 274.1200, 276.9800, 20021000);
