@@ -6,15 +6,19 @@ from typing import List, Dict, Any
 
 import mysql.connector
 from mysql.connector.connection import MySQLConnection
+import configparser
 
 logger = logging.getLogger(__name__)
 
-# Database configuration
+# Read config.ini
+config = configparser.ConfigParser()
+config.read('config.ini')
+
 db_config = {
-    'user': 'root',
-    'password': 'rootpassword',
-    'host': 'localhost',  
-    'database': 'FinancialDashboard'
+    'user': config['database']['user'],
+    'password': config['database']['password'],
+    'host': config['database']['host'],
+    'database': config['database']['database']
 }
 
 def setup_db_connection() -> MySQLConnection:

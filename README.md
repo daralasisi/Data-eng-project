@@ -95,6 +95,13 @@ it says **'line 98: /app/setup.sql: No such file or directory'**. I've ruled it 
 
 ``` docker exec -i $CONTAINER_NAME bash -c "mysql -uroot -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE < /app/setup.sql" ```
 
+### Database Configuration
+
+This project uses a `config.ini` file to store database credentials. Create a `.ini` in the project root and use `config.ini` with `configparser`.
+
+When running the pipeline, the credentials will be loaded automatically from the configuration files.
+
+
 # Running the ETL Pipeline
 ``` python src/pipeline.py ```
 <br>
@@ -102,7 +109,7 @@ it says **'line 98: /app/setup.sql: No such file or directory'**. I've ruled it 
 
 # Testing
 Run tests:
-``` python -m pytest -v  ```
+``` python -m pytest tests/script_name -v  ```
 
 <br>
 <br>

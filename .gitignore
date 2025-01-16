@@ -171,3 +171,4 @@ testing.py
 logs/
 .codegpt
 todo.scrapy
+config.ini
